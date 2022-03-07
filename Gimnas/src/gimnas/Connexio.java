@@ -5,23 +5,26 @@ import java.sql.SQLException;
 
 public class Connexio {
     
-    private final String server = "jdbc:mysql://localhost:3306/";
-    private final String password = "345697Alex";
-    private final String user = "root";
+    private final String server = "jdbc:mysql://192.168.1.200/";
+    private final String password = "Dam1";
+    private final String user = "projecte";
     private final String bd = "gim";
     private Connection con;
 
     public Connexio() {
 
         try {
-            con = DriverManager.getConnection(server + bd, user, password); 
+            con = DriverManager.getConnection(server + bd, user, password);
+            System.out.println();
         } catch (SQLException e) {
+            System.out.println("Hi ha hagut un error inesperat.");
         }
     }
 
     public void Desconexio(){
         try {
             con.close();
+            System.out.println("Desconnexió realitzada correctament.");
         } catch (SQLException e) {
         }
     }
